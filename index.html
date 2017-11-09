@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>SeenIt</title>
+        <link rel="stylesheet" href="style/site.css">
+        <link rel="stylesheet" href="style/post.css">
+        <link rel="stylesheet" href="style/header.css">
+        <link rel="stylesheet" href="style/menu.css">
+        <link rel="stylesheet" href="style/notifications.css">
+        <link rel="stylesheet" href="style/submit.css">
+        <link rel="stylesheet" href="style/comments.css">
+        <script src="script/jquery/jquery-3.2.1.min.js"></script>
+        <script src="script/user/user.js"></script>
+        <script src="script/data/data-post.js"></script>
+        <script src="script/data/data-comment.js"></script>
+        <script src="script/page/page-loader.js"></script>
+        <script src="script/util/accessor.js"></script>
+        <script src="script/util/error-handler.js"></script>
+        <script src="script/util/formatter.js"></script>
+        <script src="script/util/requester.js"></script>
+        <script src="script/util/validation.js"></script>
+        <script src="script/forum.js"></script>
+    </head>
+    <body onload="startApp()">
+        <div id="container">
+            <header>
+                <span class="logo">☃</span><span class="header">SeenIt</span>
+                <div id="profile"><span></span>|<a href="#">logout</a></div>
+            </header>
+
+            <div id="notifications">
+                <div id="loadingBox" class="notification"><span>Loading …</span></div>
+                <div id="infoBox" class="notification"><span>Info</span></div>
+                <div id="errorBox" class="notification"><span>Error</span></div>
+            </div>
+
+            <div class="content">
+                <div id="menu">
+                    <div class="title">Navigation</div>
+                    <a id="showCatalogLink" class="nav" href="#">Catalog</a>
+                    <a id="submitPostLink" class="nav" href="#">Submit Link</a>
+                    <a id="showMyPostsLink" class="nav" href="#">My Posts</a>
+                </div>
+
+                <section id="viewWelcome">
+                    <div class="welcome">
+                        <div class="signup">
+                            <form id="loginForm">
+                                <h2>Sign In</h2>
+                                <label for="loginUsername">Username:</label>
+                                <input id="loginUsername" name="username"/>
+                                <label for="loginPassword">Password:</label>
+                                <input id="loginPassword" name="password" type="password"/>
+                                <input id="btnLogin" value="Sign In" type="submit"/>
+                            </form>
+                            <form id="registerForm">
+                                <h2>Register</h2>
+                                <label for="regUsername">Username:</label>
+                                <input id="regUsername" name="username"/>
+                                <label for="regPassword">Password:</label>
+                                <input id="regPassword" name="password" type="password"/>
+                                <label for="regRepPass">Repeat Password:</label>
+                                <input id="regRepPass" name="repeatPass" type="password"/>
+                                <input id="btnRegister" value="Sign Up" type="submit"/>
+                            </form>
+                        </div>
+
+                        <div class="about">
+                            <h1>Welcome to SeenIt</h1>
+                            <p>
+                                Share interesting links and discuss great content. It's what's happening now.
+                            </p>
+                            <p>Sign in or sign up in a second.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="viewCatalog">
+                    <div class="posts">
+                    </div>
+                </section>
+
+                <section id="viewSubmit">
+                    <div class="submitArea">
+                        <h1>Submit Link</h1>
+                        <p>Please, fill out the form. A thumbnail image is not required.</p>
+                    </div>
+                    <div class="submitArea formContainer">
+                        <form id="submitForm" class="submitForm">
+                            <label for="url">Link URL:</label>
+                            <input id="url" name="url" value="">
+                            <label for="title">Link Title:</label>
+                            <input id="title" name="title" value="">
+                            <label for="image">Link Thumbnail Image (optional):</label>
+                            <input id="image" name="image" value="">
+                            <label for="comment">Comment (optional):</label>
+                            <textarea id="comment" name="comment"></textarea>
+                            <input id="btnSubmitPost" value="Submit" type="submit">
+                        </form>
+                    </div>
+                </section>
+
+                <section id="viewMyPosts">
+                    <div class="post post-content">
+                        <h1>Your Posts</h1>
+                    </div>
+                    <div class="posts">
+                    </div>
+                </section>
+
+                <section id="viewEdit">
+                    <div class="submitArea">
+                        <h1>Edit Link</h1>
+                        <p>Please, fill out the form. A thumbnail image/description is not required.</p>
+                    </div>
+                    <div class="submitArea formContainer">
+                        <form id="editPostForm" class="submitForm">
+                            <label for="editUrl">Link URL:</label>
+                            <input id="editUrl" name="url" value="">
+                            <label for="editTitle">Link Title:</label>
+                            <input id="editTitle" name="title" value="">
+                            <label for="editImage">Link Thumbnail Image (optional):</label>
+                            <input id="editImage" name="image" value="">
+                            <label for="editDescription">Comment (optional):</label>
+                            <textarea id="editDescription" name="description"></textarea>
+                            <input id="btnEditPost" type="submit" value="Edit Post">
+                        </form>
+                    </div>
+                </section>
+
+                <section id="viewComments">
+                    <div id="postDetails" class="post">
+                    </div>
+                    <div class="post post-content">
+                        <form id="commentForm">
+                            <label  for="postComment">Comment</label>
+                            <textarea id="postComment" name="content"></textarea>
+                            <input type="submit" value="Add Comment" id="btnPostComment"/>
+                        </form>
+                    </div>
+                </section>
+
+            </div>
+            <footer>SeenIt SPA © 2017</footer>
+        </div>
+    </body>
+</html>
